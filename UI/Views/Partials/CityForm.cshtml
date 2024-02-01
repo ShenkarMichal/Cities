@@ -1,0 +1,12 @@
+﻿
+@model DTO.CityDTO
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">הכנס שם</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="City" value="@Model.City">
+    @Html.ValidationMessageFor(x => x.City)
+    <input type="number" class="form-control" name="ID" value="@Model.ID" hidden>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">שמור</button>
+    </div>
+
+</div>

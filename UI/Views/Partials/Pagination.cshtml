@@ -1,0 +1,11 @@
+﻿
+
+<nav aria-label="...">
+    <ul class="pagination">
+        @for (int i = 1; i <= DTO.General.PaginationData.NumberOfPages; i++)
+        {
+            <li class="page-item" id="@i"><a class="page-link" href="/City/Index/@i" >@i</a></li>
+
+        }        
+    </ul>
+</nav>

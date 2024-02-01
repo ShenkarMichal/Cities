@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "EditCity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div dir="rtl" style="padding:2%">
+    <h2>עריכה</h2>
+    @Html.Partial("~/Views/Partials/Messages.cshtml")
+    @using (Html.BeginForm("EditCity", "City", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.Partial("~/Views/Partials/CityForm.cshtml")
+    }
+</div>
+

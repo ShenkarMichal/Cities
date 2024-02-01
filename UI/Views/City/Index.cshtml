@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<DTO.CityDTO>
+
+<div dir="rtl" style="padding: 2%">
+    <h2>איפה אתה גר?</h2>
+    @Html.Partial("~/Views/Partials/Messages.cshtml")
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">שם היישוב
+                    <a href="@Url.Action("SortCities", "City")">
+                        <img src="~/Content/editing_12942454.png" width="15px" />
+                    </a>
+                </th>
+                <th scope="col">עריכה</th>
+                <th scope="col">מחיקה</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr id="a_@c.ID">
+                    <td scope="row">@c.City</td>
+                    <td scope="col">
+                        <a href="/City/EditCity/@c.ID">
+                            <img src="~/Content/refresh_875100.png" width="15px" />
+                        </a>
+                    </td>
+                    <td scope="col">
+                        <button data-bs-toggle="modal" data-bs-target="#deleteModal" style="border: none; background-color: transparent">
+                            <img src="~/Content/delete_6861294.png" width="15px" onclick="AskQuestion('/City/DeleteCity/', @c.ID)" />
+                        </button>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+    @Html.Partial("~/Views/Partials/Pagination.cshtml")
+    @Html.Partial("~/Views/Partials/DeleteModal.cshtml")
+</div>
+
+<script src="~/Content/delete.js"></script>
+
